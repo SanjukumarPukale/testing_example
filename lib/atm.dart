@@ -34,7 +34,7 @@ var bank = Bank();
       
     } 
 
-    String withdraw(double amount, double balance, bool vp) {
+    String withdraw(double amount, double balance, bool vp, Bank bank) {
       if(vp) {
         if(balance > 1000 && amount <= balance) {
         
@@ -47,11 +47,11 @@ var bank = Bank();
       
   }
 
-  String diposit(double amount, double balance, bool vp) {
+  String diposit(double amount, double balance, bool vp, Bank bank) {
     if(vp) {
-      bank.doCredit(amount);
-      print('Balance after diposit $balance');
-      return amount.toString();
+      
+      print('Balance after diposit ${bank.doCredit(amount)}');
+      return bank.doCredit(amount).toString();
     }
     return 'incorrect password';
       
